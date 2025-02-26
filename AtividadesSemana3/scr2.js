@@ -1,19 +1,3 @@
-/*Implemente um formulario HTML para input das características de um
-carro:
-marca, modelo, ano, cor, kilometragem, valor_fipe
-Implemente um script que armazene as características preenchidas no
-formulário em um objeto e que contenha, além das propriedades acima, dois
-métodos:
-anosUtilizacao() – deve retornar quantos anos de utilização o veículo
-possui;
-valorMercado() – deve retornar o valor de mercado considerando a
-seguinte regra:
-carros que rodam até 30.000 km/ano – 110% do valor_fipe
-carros que rodam entre 30.000 e 50.000 km/ano – 100% do valor_fipe
-carros que rodam mais que 50.000 km/ano – 90% do valor_fipe
-Preenchidos os campos os métodos criados devem ser utilizados para exibir
-quantos anos o veículo tem de utilização juntamente com seu valor de
-mercado.*/
 let vetmarca = [];
 let vetmodelo = [];
 let vetano = [];
@@ -21,21 +5,23 @@ let vetcor = [];
 let vetkm = [];
 let vetfipe = [];
 let ano = null;
+let fipe = null;
 function armazenar(){
     let marca = document.getElementById("marca").value.trim();
     let modelo = document.getElementById("modelo").value.trim();
     let anoInput = document.getElementById("ano").value.trim();
     let cor = document.getElementById("cor").value.trim();
-    let km = document.getElementById("km").value.trim();
-    let fipe = document.getElementById("fipe").value.trim();
+    let kmInput = document.getElementById("km").value.trim();
+    let fipeInput = document.getElementById("fipe").value.trim();
     
 
-    if (marca === "" || modelo === "" || ano === "" || cor === "" || km === "" || fipe === "") {
+    if (marca === "" || modelo === "" || anoInput === "" || cor === "" || kmInput === "" || fipeInput === "") {
         alert('Para cadastrar, preencha todos os campos');
         return;
     }
-
+    fipe = parseInt(fipeInput);
     ano = parseInt(anoInput);
+    let km = parseInt(kmInput);
 
     vetmarca.push(marca)
     vetmodelo.push(modelo)
@@ -70,3 +56,28 @@ function anosUtilizacao(){
         <p>Veículo utilizado por : ${utilizado} anos</p>
     `;
 };
+
+function valorMercado(){
+    if(fipe === null || isNaN(fipe)){
+        alert('Adicione um valor compatível');
+        return
+    }
+    let kmAtual = vetkm[vetkm.length - 1];
+    if (kmAtual === undefined || isNaN(kmAtual)) {
+        alert('Não há quilometragem cadastrada.');
+        return;
+    }
+
+    let valor_fipe;
+    if (kmAtual <= 30000) {
+        valor_fipe = 1.1 * fipe;
+    } else if (kmAtual > 30000 && kmAtual <= 50000) {
+        valor_fipe = 1.0 * fipe;
+    } else {
+        valor_fipe = 0.9 * fipe;
+    }
+
+    document.getElementById("valores").innerHTML = `
+        <p>O valor de mercado baseado na sua quilometragem é de: R$ ${valor_fipe.toFixed(2)}</p>
+    `;
+}

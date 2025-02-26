@@ -1,0 +1,183 @@
+body {
+    background-color: black;
+    height: 100vh;
+    margin: 0;
+    overflow: auto;
+    position: relative;
+}
+
+/* Estrelas piscando */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 1px),
+                    radial-gradient(white 1px, transparent 1px);
+    background-size: 120px 120px, 180px 180px;
+    background-position: 25px 25px, 75px 75px;
+    animation: twinkle 2s infinite alternate;
+}
+
+/* Animação para mover as luzes aleatoriamente pela tela */
+@keyframes moveNeon {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(80vw, 20vh); }
+    50% { transform: translate(40vw, 80vh); }
+    75% { transform: translate(10vw, 50vh); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Animação para mudar as cores RGB das luzes neon */
+@keyframes neonColors {
+    0% { background: rgba(255, 0, 255, 0.5); } /* Magenta */
+    25% { background: rgba(0, 191, 255, 0.5); } /* Azul Claro */
+    50% { background: rgba(138, 43, 226, 0.5); } /* Roxo */
+    75% { background: rgba(255, 20, 147, 0.5); } /* Rosa Forte */
+    100% { background: rgba(255, 0, 255, 0.5); } /* Magenta */
+}
+
+.neon {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: moveNeon 10s infinite linear alternate,
+    neonColors 5s infinite linear;
+}
+
+/* Criando várias luzes */
+.neon:nth-child(1) {
+    top: 10%;
+    left: 20%;
+}
+
+.neon:nth-child(2) {
+    top: 50%;
+    left: 60%;
+    animation-duration: 12s, 6s; /* Variando a duração das animações */
+}
+
+.neon:nth-child(3) {
+    top: 70%;
+    left: 30%;
+    animation-duration: 8s, 4s;
+}
+
+.neon:nth-child(4) {
+    top: 30%;
+    left: 80%;
+    animation-duration: 14s, 7s;
+}
+
+
+.centro{
+    display: flex;
+    justify-content: center;
+    transform: translate(0%, 1%);
+}
+
+.form-container {
+    width: 400px;
+    background: linear-gradient(#212121, #212121) padding-box,
+                linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+    border: 2px solid transparent;
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.form-container button:active {
+    scale: 0.95;
+}
+
+.form-container .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.form-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.form-container .form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: #fff;
+    font-family: inherit;
+    background-color: transparent;
+    border: 1px solid #414141;
+}
+
+.form-container .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 8px;
+    resize: none;
+    color: #fff;
+    height: 96px;
+    border: 1px solid #414141;
+    background-color: transparent;
+    font-family: inherit;
+}
+
+.form-container .form-group input::placeholder {
+    opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+    outline: none;
+    border-color: #e81cff;
+}
+
+.form-container .form-group textarea:focus {
+    outline: none;
+    border-color: #e81cff;
+}
+
+.form-container .form-submit-btn {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-self: flex-start;
+    font-family: inherit;
+    color: #ffffff;
+    font-weight: 600;
+    width: 40%;
+    background: #313131;
+    border: 1px solid #414141;
+    padding: 12px 16px;
+    font-size: inherit;
+    gap: 8px;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.form-container .form-submit-btn:hover {
+    background-color: #fff;
+    border-color: #fff;
+}
