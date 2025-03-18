@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cadastro</title>
+    <script src="scr1.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            width: 600px;
+            margin: auto;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .radio-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 48%;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .enviar {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .reset {
+            background-color: #f44336;
+            color: white;
+        }
+
+        footer{
+            margin-top:50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulário de Cadastro</h2>
+    <form>
+        <label>Nome:</label>
+        <input id="nome" type="text" placeholder="Digite seu nome completo" required>
+        
+        <label>Email:</label>
+        <input id="email" type="email" placeholder="Digite seu email" required>
+        <span class="error">Email inválido</span>
+        
+        <label>Data de Nascimento:</label>
+        <input id="data" type="date" required>
+        
+        <label>Telefone Fixo:</label>
+        <input id="tel" type="tel" placeholder="(99)9999-9999">
+        
+        <label>Telefone Celular:</label>
+        <input id="cel" type="tel" placeholder="(99)99999-9999">
+        
+        <label>Área:</label>
+        <input id="area" type="text" placeholder="Digite sua área de atuação">
+        
+        <label>Matrícula:</label>
+        <input id="matricula" type="text" placeholder="Digite sua matrícula">
+        
+        <label>Lattes:</label>
+        <input id="lattes" type="url" placeholder="Digite o endereço do seu Lattes">
+        
+        <label>Tipo:</label>
+        <div class="radio-group">
+            <input id="professor" type="radio" name="tipo" value="professor"> Professor
+            <input id="aluno" type="radio" name="tipo" value="aluno"> Aluno
+        </div>
+        
+        <button type="submit" class="enviar">Enviar</button>
+        <button type="reset" class="reset">Redefinir</button>
+    </form>
+    <footer>Contato:</footer>
+</body>
+</html>
