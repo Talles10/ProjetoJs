@@ -73,21 +73,24 @@
         <label>Telefone Celular:</label>
         <input id="cel" type="tel" placeholder="(99)99999-9999">
         
-        <label>Área:</label>
-        <input id="area" type="text" placeholder="Digite sua área de atuação">
-        
+        <div id="campoarea">
+            <label>Área:</label>
+            <input id="area" type="text" placeholder="Digite sua área de atuação">
         <label>Matrícula:</label>
         <input id="matricula" type="text" placeholder="Digite sua matrícula">
-        
-        <label>Lattes:</label>
-        <input id="lattes" type="url" placeholder="Digite o endereço do seu Lattes">
-        
+        <div id="campolattes">
+            <label>Lattes:</label>
+            <input id="lattes" type="url" placeholder="Digite o endereço do seu Lattes">
+        </div>
         <label>Tipo:</label>
         <div class="radio-group">
             <input id="professor" type="radio" name="tipo" value="professor"> Professor
             <input id="aluno" type="radio" name="tipo" value="aluno"> Aluno
         </div>
-        
+        <div id="campocurso">
+            <label>Curso</label>
+            <input id="curso" type="text" value="curso">
+        </div>
         <button type="submit" class="enviar">Enviar</button>
         <button type="reset" class="reset">Redefinir</button>
     </form>
