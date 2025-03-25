@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Pessoas</title>
+    <script src="src1.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .contador {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 500px;
+        }
+        .total {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        .reset {
+            cursor: pointer;
+            font-size: 28px;
+        }
+        .grupo-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .grupo {
+            text-align: center;
+        }
+        .grupo img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 10px;
+        }
+        .botoes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .contador input {
+            width: 80px;
+            height: 50px;
+            text-align: center;
+            font-size: 24px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+        }
+        .botao {
+            font-size: 28px;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+        }
+        .mais { background: green; color: white; }
+        .menos { background: red; color: white; }
+    </style>
+</head>
+<body>
+
+    <div id="app"></div>
+
+</body>
+</html>
