@@ -1,4 +1,37 @@
-Implemente uma página HTML com um componente
-React que simule um letreiro com o texto "Venha
-estudar na Fatec". O texto deve aparecer letra a letra na
-página como se estivesse sendo digitado.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letreiro</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Letreiro() {
+            const [text, setText] = React.useState("");
+            const fullText = "Venha estudar na Fatec";
+            React.useEffect(() => {
+                let index = 0;
+                const interval = setInterval(() => {
+                    setText((prev) => {
+                        if (index < fullText.length) {
+                            const newText = prev + fullText[index];
+                            index++;
+                            return newText;
+                        }else{
+                            clearInterval(interval);
+                            return prev;
+                        }});
+                    }, 200);
+                return () => clearInterval(interval);}, []);
+            return <h1>{text}</h1>;
+        }
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<Letreiro />);
+    </script>
+</body>
+</html>

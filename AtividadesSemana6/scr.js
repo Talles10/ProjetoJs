@@ -1,7 +1,9 @@
 const fundo = document.createElement("div");
+fundo.style.position = "absolute";
+fundo.style.top = "15%";
+fundo.style.left = "40%";
 fundo.style.display = "flex";
 fundo.style.marginTop = "100px";
-fundo.style.justifySelf = "center";
 fundo.style.flexDirection = "column";
 fundo.style.alignItems = "center";
 fundo.style.justifyContent = "center";
@@ -10,6 +12,8 @@ fundo.style.height = "500px";
 fundo.style.backgroundColor = "black";
 fundo.style.padding = "10px";
 fundo.style.borderRadius = "15px";
+fundo.style.justifySelf = "center";
+fundo.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
 
 const tela = document.createElement("div");
 tela.style.width = "90%";
@@ -38,9 +42,11 @@ const botoes = [
     { texto: "7", cor: "gray" }, { texto: "8", cor: "gray" }, { texto: "9", cor: "gray" }, { texto: "×", cor: "orange" },
     { texto: "4", cor: "gray" }, { texto: "5", cor: "gray" }, { texto: "6", cor: "gray" }, { texto: "-", cor: "orange" },
     { texto: "1", cor: "gray" }, { texto: "2", cor: "gray" }, { texto: "3", cor: "gray" }, { texto: "+", cor: "orange" },
-    { texto: "0", cor: "gray" }, { texto: ",", cor: "gray" }, { texto:".",  cor: "black"}, { texto: "=", cor: "orange" }
+    { texto: "0", cor: "gray" }, { texto: ",", cor: "gray" }, { texto: ".", cor: "gray" }, { texto: "=", cor: "orange" }
 ];
-//forEach para criar os botões
+
+let expressao = "";
+
 botoes.forEach(botaoInfo => {
     const botao = document.createElement("button");
     botao.innerText = botaoInfo.texto;
@@ -49,13 +55,33 @@ botoes.forEach(botaoInfo => {
     botao.style.borderRadius = "25px";
     botao.style.width = botaoInfo.largura || "50px";
     botao.style.height = "50px";
+    botao.style.fontSize = "20px";
+    botao.style.border = "none";
+    botao.style.cursor = "pointer";
 
-    botoesContainer.appendChild(botao);
-});
-
-//Com o appendChild, o fundo recebe a tela e o botoesContainer
+    botao.addEventListener("click", () => {
+        if (botao.innerText === "AC") {
+            expressao = "";
+            tela.innerText = "0";
+        } else if (botao.innerText === "=") {
+            try {
+                expressao = expressao.replace("×", "*").replace("÷", "/");
+                tela.innerText = eval(expressao);
+                expressao = tela.innerText;
+            } catch {
+                tela.innerText = "Erro";
+                expressao = "";
+            }
+        } else {
+            if (tela.innerText === "0" && !isNaN(botao.innerText)) {
+                expressao = botao.innerText;
+            } else {
+                expressao += botao.innerText;
+            }
+            tela.innerText = expressao;
+        }
+    });
+    botoesContainer.appendChild(botao);});
 fundo.appendChild(tela);
 fundo.appendChild(botoesContainer);
-
-//Com o appendChild, o body recebe o fundo
 document.body.appendChild(fundo);
