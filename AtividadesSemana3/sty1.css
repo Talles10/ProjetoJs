@@ -1,12 +1,12 @@
 .titulo{
     color: white;
     text-align: center;
-    font-size: 100px;
+    font-size: 70px;
 }
 p{
     color: white;
     text-align: center;
-    font-size: 70px;
+    font-size: 50px;
 }
 #objeto{
     background-color: white;
@@ -18,10 +18,10 @@ p{
 .input {
     color: black;
     border: 2px solid #8707ff;
-    border-radius: 100px;
+    border-radius: 80px;
     padding: 10px 20px;
     background: transparent;
-    max-width: 5000px;
+    max-width: 4000px;
     text-align: center;
 }
 .input:active {
@@ -29,7 +29,8 @@ p{
 button {
     width: 200px;
     padding: 10px;
-    margin: 50px 850px;
+    margin-top: 20px;
+    margin-left: 530px;
     border: none;
     border-radius: 50px;
     font-size: 30px;
@@ -44,7 +45,7 @@ button {
     }
     
 .container {
-    display: block;
+    display: inline-block;
     align-self: center;
     align-items: center;
     width: 100%;

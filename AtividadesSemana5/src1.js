@@ -47,8 +47,8 @@ const botaoReset = criarBotao("🔄", "reset", () => {
     inputHomens.value = inputMulheres.value = totalPessoas.value = 0;
     atualizarTotal();
 });
-const { secao: secHomens, input: inputHomens } = criarSecao("Homens", "images.jpeg");
-const { secao: secMulheres, input: inputMulheres } = criarSecao("Mulheres", "pngtree-cartoon-business-man-png-image_13118458.png");
+const { secao: secHomens, input: inputHomens } = criarSecao("Mulheres", "images.jpeg");
+const { secao: secMulheres, input: inputMulheres } = criarSecao("Homens", "pngtree-cartoon-business-man-png-image_13118458.png");
 const grupoContainer = criarElemento("div", "", "grupo-container");
 grupoContainer.append(secHomens, secMulheres);
 contador.append(titulo, totalPessoas, botaoReset, grupoContainer);
